@@ -15,11 +15,10 @@ Rails.application.routes.draw do
 
   get 'verify_otp/:id', to: 'sessions#verify_otp', as: 'verify_otp'
 
-  # resources :users, only: [:new, :create] do
-  #   member do
-  #     get 'verify_email/:token', to: 'users#verify_email', as: 'verify_email'
-  #   end
-  # end
+  get '/sessions/new', to: 'sessions#new', as: :new_session
+  post '/sessions', to: 'sessions#create', as: :sessions
+  get '/sessions/verify_otp', to: 'sessions#verify_otp', as: :verify_otp_sessions
+  post '/sessions/verify_otp', to: 'sessions#verify_otp'
 
   # resources :password_resets, only: [:new, :create]
 

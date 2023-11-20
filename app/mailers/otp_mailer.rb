@@ -1,6 +1,6 @@
 class OtpMailer < ApplicationMailer
-    def otp_email(email)
-        @user = email
-        mail(to: @user, subject: 'Your OTP for Two-Factor Authentication')
-      end
+  def send_otp(user)
+    @user = user
+    mail(to: @user.email, subject: 'Your OTP for Two-Factor Authentication')
+  end
 end

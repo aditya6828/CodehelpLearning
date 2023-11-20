@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       email = @user.email
       if @user.save
         # Send verification email here
-       ::OtpMailer.otp_email(email).deliver_now
+       ::UserMailer.otp_email(email).deliver_now
         redirect_to root_path, notice: 'Registration successful. Please check your email for verification.'
       else
         render :new

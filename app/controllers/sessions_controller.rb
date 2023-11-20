@@ -1,12 +1,19 @@
 class SessionsController < ApplicationController
+
+    def new
+      
+    end
     def create
       user = User.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
         # Generate and send OTP via email
         otp = rand(1000..9999)
-        user.update(otp: otp)
-        UserMailer.otp_email(user).deliver_now
-        render :verify_otp, locals: { user: user }
+        user[:otp] = otp
+        # user.update(otp: otp)
+        # UserMailer.otp_email(user).deliver_now
+        OtpMailer.send_otp(user).deliver_now
+        redirect_to verify_otp_sessions_path(user_id: user.id)
+        # render :verify_otp, locals: { user: user }
       else
         flash.now[:alert] = 'Invalid email or password.'
         render :new
@@ -26,4 +33,3 @@ class SessionsController < ApplicationController
       end
     end
   end
-  

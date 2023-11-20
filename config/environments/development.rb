@@ -85,12 +85,12 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => 'harshdh55@gmail.com',
-    :password             => 'rxuybjepgmesjous',
+    :user_name            => 'adityaanand6828@gmail.com',
+    :password             => 'cyjbyoiqwaakmaml',
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
 
 
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
