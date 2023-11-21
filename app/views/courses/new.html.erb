@@ -1,0 +1,24 @@
+<h1> Create a New Course <h1>
+
+<%= form_with(model: @course, url: courses_path, method: :post, local: true, multipart: true) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_feild :title, required: true %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description, required: true %>
+
+    <%= f.label :price %>
+    <%= f.number_feild :price, required: true %>
+
+    <%= f.label :video %>
+    <%= f.file_field :video %>
+
+    <%= f.label :document %>
+    <%= f.file_field :document %>
+
+    <%= f.submit "Create Course" %>
+    
+<% end %>
+
+
+    

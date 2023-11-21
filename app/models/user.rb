@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     before_create :generate_reset_token
+    has_many :courses, dependent: :destroy
     has_secure_password
 
     validates :email, presence: true, uniqueness: true

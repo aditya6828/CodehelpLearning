@@ -27,5 +27,11 @@ Rails.application.routes.draw do
   #     get 'verify_otp/:id', to: 'sessions#verify_otp', as: 'verify_otp'
   #   end
   # end
+  get 'courses', to: 'users#courses'
+  post 'courses', to: 'users#create_course'
+
+  GET /users/:id/courses
+  POST /users/:id/courses
+
 
 end

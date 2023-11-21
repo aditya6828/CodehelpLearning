@@ -1,0 +1,21 @@
+<h1>All courses </h1>
+
+<% @courses.each do |course| %>
+    <div class="course-card">
+        <h2><%= course.title %></h2>
+
+        <div class="course-details">
+            <div class="video-section">
+                <%= link_to "Access Video", course.video.url, target: "_blank" if course.video.attached? %>
+            </div>
+
+            <div class="description-section">
+                <%= course.description %>
+            </div>
+
+            <div class="price-section">
+                Price: <%= number_to_currency(course.price) %>
+            </div>
+        </div>
+    </div>
+<% end %>
