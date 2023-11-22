@@ -8,8 +8,10 @@
   
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, required: true %>
-  
+
+    <%= f.label :role %>
+    <%= f.select :role, User.roles.keys, required: true %>
+
     <%= f.submit "Register" %>
-    <%= link_to 'Login', new_session_path, class: 'btn' %>
 <% end %>
   

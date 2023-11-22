@@ -3,8 +3,11 @@ class User < ApplicationRecord
     has_many :courses, dependent: :destroy
     has_secure_password
 
+    enum role: { student: 0, instructor: 1 }
+
     validates :email, presence: true, uniqueness: true
     validates :password, presence: true, length: { minimum: 6 }
+    validates :role, presence: true  
 
     private
 

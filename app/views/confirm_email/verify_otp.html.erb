@@ -1,0 +1,7 @@
+<h1>Verify OTP</h1>
+<%= form_with url: verify_otp_path(id: @user), method: :post do |f| %>
+  <%= f.text_field :id %>
+  <%= f.label :otp %>
+  <%= f.text_field :otp, required: true %>
+  <%= f.submit "Verify OTP" %>
+<% end %>
